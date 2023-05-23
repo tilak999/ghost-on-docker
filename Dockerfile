@@ -10,7 +10,7 @@ RUN mkdir -p /var/lib/ghost/content && \
 WORKDIR /var/lib/ghost
 RUN mv package current
 
-RUN cd current && rm yarn.lock && yarn install --ignore-engines --ignore-platform --network-timeout 1000000
+RUN cd current && yarn install --ignore-engines --ignore-platform --network-timeout 1000000
 VOLUME ["/var/lib/ghost/content"]
 
 COPY content ./content.orig

@@ -1,16 +1,11 @@
 version: "3"
 services:
   ghost:
-    build: .
+    image: ghcr.io/tilak999/ghost-on-docker:latest
     restart: always
     ports:
       - 2368:2368
-    volumes: [blog-data:/tmp/ghost]
+    volumes: [blog-data:/var/lib/ghost/content]
 volumes:
   blog-data:
-    driver: rclone
-    driver_opts:
-      remote: "oracle-s3:blog-data"
-      allow_other: "true"
-      vfs_cache_mode: full
-      poll_interval: 0
+    driver: local
