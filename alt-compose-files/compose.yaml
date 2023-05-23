@@ -10,4 +10,9 @@ services:
     volumes: [blog-data:/var/lib/ghost/content]
 volumes:
   blog-data:
-    driver: local
+    driver: rclone
+    driver_opts:
+      remote: "oracle-s3:blog-data"
+      allow_other: "true"
+      vfs_cache_mode: full
+      poll_interval: 0
