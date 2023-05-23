@@ -1,2 +1,6 @@
 # ghost-on-docker
-Ghost blog running on docker
+Run ghost blog using sqlite in docker container
+
+```bash
+sudo docker compose up -d
+```
